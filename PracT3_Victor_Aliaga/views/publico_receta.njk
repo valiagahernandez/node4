@@ -1,0 +1,41 @@
+{% extends "publico_base.njk" %}
+
+{% block titulo %}Recetas | Receta{% endblock %}
+
+{% block contenido %}
+
+    <div class="form-row">
+        <h1>{{receta.titulo}}</h1><br/>
+    </div>
+    <div class="form-row">
+        <p>{{receta.comensales}} comensales</p>
+    </div>
+    <div class="form-row">
+        <p>
+            <strong>Preparación: </strong>{{receta.preparacion}} min. 
+            <strong>Cocción: </strong>{{receta.coccion}} min. 
+        </p>
+    </div>
+    <div class="form-row">
+        <div class="col-4">
+            <img src="/public/uploads/{{receta.imagen}}" class="w-100">
+        </div>
+        <div class="col-8">
+            <p><strong>Ingredientes:</strong></p>
+            <ul>
+                {% for elemento in receta.elementos %}
+                    {% if elemento.ingrediente %}
+                        <li>
+                            <td>
+                                {{ elemento.ingrediente }}: {{elemento.cantidad}} {{elemento.unidad}}
+                            </td>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <p><strong>Descripción:</strong></p>
+            <p>{{receta.descripcion}}</p>
+        </div>
+    </div>
+
+{% endblock %}

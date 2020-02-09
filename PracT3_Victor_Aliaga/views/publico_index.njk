@@ -1,0 +1,29 @@
+{% extends "publico_base.njk" %}
+
+{% block titulo %}Recetas | Inicio{% endblock %}
+
+{% block contenido %}
+
+    <form action="/buscar" method="post" >
+        <div class="form-row">
+            <div class="col-10">
+                <input type="text" class="form-control" name="busqueda" id="busqueda" placeholder="Buscador de recetas...">
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-secondary mb-2">Buscar</button>
+            </div>
+        </div>
+    </form>
+    <ul>
+        {% for receta in recetas %}
+            <li>
+                <td>
+                    <a class="" href="/receta/{{ receta.id }}">{{ receta.titulo }}</a>
+                </td>
+            </li>
+        {% else %}
+            {{error}}
+        {% endfor %}
+    </ul>
+
+{% endblock %}
