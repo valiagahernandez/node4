@@ -1,0 +1,25 @@
+{% extends "publico_base.njk" %}
+
+{% block titulo %}Recetas | Login{% endblock %}
+
+{% block contenido %}
+        {%if error %}
+            {{error}}
+        {%else%}
+        {%endif%}
+
+    <form action="/auth/login" method="post" >
+        <div class="form-row">
+            <div class="col-auto">
+                <input type="text" class="form-control" name="login" id="login" placeholder="Login">
+            </div>
+            <div class="col-auto">
+                <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-secondary mb-2">Login</button>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}

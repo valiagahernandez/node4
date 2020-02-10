@@ -1,0 +1,204 @@
+{% extends "admin_base.njk" %}
+
+{% block titulo %}Recetas | Formulario{% endblock %}
+
+{% block contenido %}
+    {%if error %}
+        {{error}}
+    {%else%}
+    {%endif%}
+    {% if receta %}
+        <h1>Editar receta</h1>
+        <form action="/admin/recetas/{{receta.id}}?_method=PUT" method="post" enctype="multipart/form-data">  
+        <input type="hidden" name="_method" value="PUT">
+    {% else %}
+        <h1>Nueva receta</h1>
+        <form action="/admin/recetas" method="post" enctype="multipart/form-data">
+    {% endif %}
+            <div class="form-row">
+                <div class="col-auto">
+                    <label for="titulo">Título:</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-auto">
+                    <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Titulo" value="{{receta.titulo}}">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-auto">
+                    <label for="comensales">Comensales:</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-auto">
+                    <input type="text" class="form-control" name="comensales" id="comensales" placeholder="Comensales" value="{{receta.comensales}}">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-auto">
+                    <label for="preparacion">Preparación:</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-auto">
+                    <input type="text" class="form-control" name="preparacion" id="preparacion" placeholder="Preparacion" value="{{receta.preparacion}}">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-auto">
+                    <label for="coccion">Cocción:</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-auto">
+                    <input type="text" class="form-control" name="coccion" id="coccion" placeholder="Coccion" value="{{receta.coccion}}">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-auto">
+                    <label for="descripcion">Descripción:</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-auto">
+                    <input type="text" class="form-control" name="descripcion" id="descripcion" placeholder="Descripcion" value="{{receta.descripcion}}">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-auto">
+                    <label for="imagen">Imagen:</label>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-auto">
+                    <input type="file" class="form-control" name="imagen" id="imagen"  >
+                </div>
+            </div>
+            <div class="elemento1">
+                <div class="form-row">
+                    <div class="col-auto">
+                        <h3>Elemento 1</h3>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-auto">
+                        <label for="ingrediente1">Ingrediente:</label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-auto">
+                        <input type="text" class="form-control" name="ingrediente1" id="ingrediente1" placeholder="Ingrediente" value="{{receta.elementos[0].ingrediente}}">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-auto">
+                        <label for="cantidad1">Cantidad:</label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-auto">
+                        <input type="text" class="form-control" name="cantidad1" id="cantidad1" placeholder="Cantidad" value="{{receta.elementos[0].cantidad}}">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-auto">
+                        <label for="unidad1">Unidad:</label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-auto">
+                        <input type="text" class="form-control" name="unidad1" id="unidad1" placeholder="Unidad" value="{{receta.elementos[0].unidad}}">
+                    </div>
+                </div>
+            </div>
+            <div class="elemento2">
+                <div class="form-row">
+                    <div class="col-auto">
+                        <h3>Elemento 2</h3>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-auto">
+                        <label for="ingrediente2">Ingrediente:</label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-auto">
+                        <input type="text" class="form-control" name="ingrediente2" id="ingrediente2" placeholder="Ingrediente" value="{{receta.elementos[1].ingrediente}}">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-auto">
+                        <label for="cantidad2">Cantidad:</label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-auto">
+                        <input type="text" class="form-control" name="cantidad2" id="cantidad2" placeholder="Cantidad" value="{{receta.elementos[1].cantidad}}">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-auto">
+                        <label for="unidad2">Unidad:</label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-auto">
+                        <input type="text" class="form-control" name="unidad2" id="unidad2" placeholder="Unidad" value="{{receta.elementos[1].unidad}}">
+                    </div>
+                </div>
+            </div>
+            <div class="elemento3">
+                <div class="form-row">
+                    <div class="col-auto">
+                        <h3>Elemento 3</h3>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-auto">
+                        <label for="ingrediente3">Ingrediente:</label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-auto">
+                        <input type="text" class="form-control" name="ingrediente3" id="ingrediente3" placeholder="Ingrediente" value="{{receta.elementos[2].ingrediente}}">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-auto">
+                        <label for="cantidad3">Cantidad:</label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-auto">
+                        <input type="text" class="form-control" name="cantidad3" id="cantidad3" placeholder="Cantidad" value="{{receta.elementos[2].cantidad}}">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-auto">
+                        <label for="unidad3">Unidad:</label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-auto">
+                        <input type="text" class="form-control" name="unidad3" id="unidad3" placeholder="Unidad" value="{{receta.elementos[2].unidad}}">
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-auto">
+                    <div class="col-auto">
+                     {% if receta %}
+                        <button type="submit" class="btn btn-secondary mb-2">Editar Receta</button> 
+                    {% else %}
+                        <button type="submit" class="btn btn-secondary mb-2">Añadir Receta</button>
+                    {% endif %}
+                        
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+    {% endblock %}
