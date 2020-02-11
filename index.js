@@ -14,7 +14,7 @@ const auth = require(__dirname + '/routes/auth');
 const publico = require(__dirname + '/routes/publico');
 
 // Conectar con BD en Mongo 
-mongoose.connect('mongodb://localhost:27020/recetasV3', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://ibai.site:27020/recetasV3', { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Inicializar Express
 let app = express();
